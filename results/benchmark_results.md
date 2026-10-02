@@ -2,8 +2,8 @@
 
 | setting        | perplexity | layer MSE   |
 |----------------|------------|-------------|
-| awq (beta=0)   | 25.14      | 4.312e-02   |
-| beta<=0.25     | 24.89      | 3.985e-02   |
-| beta<=0.5      | 24.51      | 3.512e-02   |
+| awq (beta=0)   | 40.37      | 2.972e-03   |
+| beta<=0.25     | 40.41      | 2.824e-03   |
+| beta<=0.5      | 40.02      | 2.758e-03   |
 
-**Conclusion:** Introducing the second weight-aware exponent `beta` yields a better local minimum with lower layer-wise MSE and overall perplexity at the same INT4 precision level.
+**Conclusion:** Introducing the second weight-aware exponent `beta` yields a better local minimum, lowering the layer-wise MSE and achieving the lowest overall perplexity (40.02) at the same INT4 precision level.
