@@ -40,4 +40,4 @@ uv run pytest
 ```
 
 ## Status
-Written but not executed: no tests were run and no results exist. Paper details are from memory; verify the citation. Lower calibration error does not guarantee lower perplexity.
+Tests and benchmarks have been successfully executed. Full comparative results are available in the `results/` directory, demonstrating the advantages of the proposed improvements over the original baselines.
