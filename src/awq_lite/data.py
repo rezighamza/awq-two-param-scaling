@@ -4,7 +4,7 @@ from datasets import load_dataset
 
 
 def _ids(tok, split):
-    text = "\n\n".join(load_dataset("wikitext", "wikitext-2-raw-v1", split=split)["text"])
+    text = "\n\n".join(load_dataset("Salesforce/wikitext", "wikitext-2-raw-v1", split=split)["text"])
     return tok(text, return_tensors="pt").input_ids
 
 
