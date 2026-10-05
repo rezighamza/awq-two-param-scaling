@@ -2,7 +2,7 @@
 import torch
 
 
-def fake_quant(w, bits=4, group=128):
+def fake_quant(w: torch.Tensor, bits: int = 4, group: int = 128) -> torch.Tensor:
     """w: [out, in] with in % group == 0. Each run of `group` input weights shares scale/zero-point."""
     if w.shape[-1] % group:
         raise ValueError(f"in_features {w.shape[-1]} not divisible by group size {group}")
