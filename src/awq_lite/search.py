@@ -21,6 +21,10 @@ def scales_for(x_mean, w_mean, alpha, beta):
 
 @torch.no_grad()
 def search_scales(weight, x, bits=4, group=128, grid=20, betas=(0.0,)):
+    if grid <= 0:
+        raise ValueError(f'grid must be positive, got {grid}')
+    if not betas:
+        raise ValueError('betas sequence cannot be empty')
     """Return (best_quantized_weight, best_alpha, best_beta, best_error, plain_rtn_error).
 
     weight: [out, in]; x: [tokens, in] calibration inputs of this layer.
