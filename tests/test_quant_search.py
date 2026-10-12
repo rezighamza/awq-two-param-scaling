@@ -47,3 +47,10 @@ def test_beta_grid_contains_original_awq():
     base = search_scales(w, x, 4, 128, 10, betas=(0.0,))[3]
     ext = search_scales(w, x, 4, 128, 10, betas=(0.0, 0.25, 0.5))[3]
     assert ext <= base + 1e-12
+
+
+def test_fake_quant_finite():
+    w = torch.randn(8, 128)
+    q = fake_quant(w, bits=4, group=128)
+    assert torch.isfinite(q).all()
+    assert q.shape == w.shape
