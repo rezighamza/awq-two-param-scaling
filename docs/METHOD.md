@@ -24,3 +24,10 @@ channels. Dividing by weight magnitude counteracts this.
 * Lower calibration MSE does not guarantee lower perplexity (possible overfit to calibration data).
 * Cost grows linearly with the number of β values.
 * Targets OPT's layout; other architectures need a different `layers` accessor.
+
+
+## Two-Parameter Scaling Objective
+
+The baseline AWQ searches a single activation-aware scale factor $s = s_x^\alpha$. Our two-parameter formulation incorporates weight magnitude penalization:
+$$s = s_x^\alpha \cdot s_w^{-\beta}$$
+This mitigates excessive dynamic range inflation on channels with already large weights, yielding lower mean squared error under 4-bit representation.
