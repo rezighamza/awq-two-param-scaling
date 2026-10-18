@@ -1,3 +1,4 @@
+import time
 """End-to-end: load OPT, collect calibration inputs, quantize every decoder Linear, evaluate."""
 import torch
 import torch.nn as nn
