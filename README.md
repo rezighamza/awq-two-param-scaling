@@ -41,3 +41,15 @@ uv run pytest
 
 ## Status
 Tests and benchmarks have been successfully executed. Full comparative results are available in the `results/` directory, demonstrating the advantages of the proposed improvements over the original baselines.
+
+## Empirical Results Summary
+
+Benchmarked on `facebook/opt-125m` under 4-bit group-128 quantization:
+
+| Setting | Perplexity | Mean Layer MSE |
+|---|---|---|
+| AWQ baseline (beta=0) | 40.37 | 2.972e-03 |
+| Two-param (beta<=0.25) | 40.41 | 2.824e-03 |
+| Two-param (beta<=0.50) | 40.02 | 2.758e-03 |
+
+Expanding the search grid across `beta` yields both lowest reconstruction error and superior test perplexity. Full metrics in [results/benchmark_results.md](results/benchmark_results.md).
